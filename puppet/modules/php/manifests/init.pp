@@ -24,21 +24,21 @@ class php {
     ensure => present;
   }
 
-  file {
-    '/etc/php5/apache2':
-      ensure => directory,
-      before => File ['/etc/php5/apache2/php.ini'];
+  # file {
+  #   '/etc/php5/apache2':
+  #     ensure => directory,
+  #     before => File ['/etc/php5/apache2/php.ini'];
 
-    '/etc/php5/apache2/php.ini':
-      source  => 'puppet:///modules/php/apache2-php.ini',
-      require => Package['php5'];
+  #   '/etc/php5/apache2/php.ini':
+  #     source  => 'puppet:///modules/php/apache2-php.ini',
+  #     require => Package['php5'];
 
-    '/etc/php5/cli':
-      ensure => directory,
-      before => File ['/etc/php5/cli/php.ini'];
+  #   '/etc/php5/cli':
+  #     ensure => directory,
+  #     before => File ['/etc/php5/cli/php.ini'];
 
-    '/etc/php5/cli/php.ini':
-      source  => 'puppet:///modules/php/cli-php.ini',
-      require => Package['php5-cli'];
-  }
+  #   '/etc/php5/cli/php.ini':
+  #     source  => 'puppet:///modules/php/cli-php.ini',
+  #     require => Package['php5-cli'];
+  # }
 }

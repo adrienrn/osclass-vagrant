@@ -4,3 +4,4 @@ puppet/modules/concat/
 puppet/modules/mysql/
 puppet/modules/staging/
 puppet/modules/stdlib/
+sites/*

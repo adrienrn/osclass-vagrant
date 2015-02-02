@@ -1,13 +1,11 @@
 -- create database for the dynamic site
 CREATE DATABASE IF NOT EXISTS `osclass`;
 -- create a new user for the Web app
-DELETE FROM mysql.user WHERE User = 'admin';
-CREATE USER 'admin'@'localhost' IDENTIFIED BY 'osclass123';
-GRANT ALL PRIVILEGES ON `osclass`.* TO 'admin'@'localhost' IDENTIFIED BY 'osclass123';
+-- DELETE FROM mysql.user WHERE User = 'admin';
+-- CREATE USER 'admin'@'localhost' IDENTIFIED BY 'osclass123';
+-- GRANT ALL PRIVILEGES ON `osclass`.* TO 'admin'@'localhost' IDENTIFIED BY 'osclass123';
 
-# Create an external user with privileges on all databases in mysql so
-# that a connection can be made from the local machine without an SSH tunnel
-GRANT ALL PRIVILEGES ON *.* TO 'external'@'%' IDENTIFIED BY 'external';
+CONNECT `osclass`;
 
 -- phpMyAdmin SQL Dump
 -- version 3.4.10.1deb1
@@ -20,7 +18,6 @@ GRANT ALL PRIVILEGES ON *.* TO 'external'@'%' IDENTIFIED BY 'external';
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -55,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `oc_t_admin` (
 --
 
 INSERT INTO `oc_t_admin` (`pk_i_id`, `s_name`, `s_username`, `s_password`, `s_email`, `s_secret`, `b_moderator`) VALUES
-(1, 'Administrator', 'admin', '$2y$15$ITKShi38nzKLLTf4Os/6oOU5uhLbvM5oWWiEn9kLa6Fm8PO2.bQwC', 'admin@osclass.dev', NULL, 0);
+(1, 'Administrator', 'admin', '$2y$15$bQ0LQgMTzbFFAdeXKprmBON.7GXBLG7UfZjy3L9.Rv7WY/LXuniMe', 'admin@osclass.dev', NULL, 0);
 
 -- --------------------------------------------------------
 

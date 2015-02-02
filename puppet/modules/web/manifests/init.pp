@@ -82,4 +82,9 @@ class web {
       port    => '80',
       docroot => '/var/www/osclass',
     }
+
+    file { "/var/www/osclass/config.php":
+      ensure => present,
+      source => "puppet:///modules/web/config.php",
+    }
 }

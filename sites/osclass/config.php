@@ -9,10 +9,10 @@ define('MULTISITE', 0);
 define('DB_NAME', 'osclass');
 
 /** MySQL database username */
-define('DB_USER', 'admin');
+define('DB_USER', 'hello');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'osclass123');
+define('DB_PASSWORD', 'hello');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -20,8 +20,8 @@ define('DB_HOST', 'localhost');
 /** Database Table prefix */
 define('DB_TABLE_PREFIX', 'oc_');
 
-define('REL_WEB_URL', '/osclass/');
+define('REL_WEB_URL', '/');
 
-define('WEB_PATH', 'http://local.osclass.dev/osclass/');
+define('WEB_PATH', 'http://osclass.dev/');
 
 ?>

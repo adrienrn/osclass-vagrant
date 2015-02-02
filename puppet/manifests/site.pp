@@ -8,12 +8,4 @@ class { 'baseconfig':
   stage => 'pre'
 }
 
-# set defaults for file ownership/permissions
-File {
-  owner => 'root',
-  group => 'root',
-  mode  => '0775',
-}
-
-include baseconfig, apache, mysql, php, apache_vhosts
-
+include web

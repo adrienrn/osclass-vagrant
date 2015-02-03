@@ -7,6 +7,9 @@ puppet/modules/stdlib/
 puppet/modules/inifile/
 puppet/modules/php/
 puppet/modules/phpmyadmin/
+puppet/modules/apt/
+puppet/modules/wget/
+puppet/modules/nodejs/
 sites/*
 *.DS_Store
 /php.error.log

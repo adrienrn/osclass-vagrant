@@ -8,7 +8,9 @@
 	"puppet/modules/staging" => "https://github.com/nanliu/puppet-staging.git",
 	"puppet/modules/mysql" => "https://github.com/puppetlabs/puppetlabs-mysql.git",
 	"puppet/modules/php" => "https://github.com/jippi/puppet-php.git",
-	"puppet/modules/phpmyadmin" => "https://github.com/justicel/puppet-phpmyadmin.git"
+	"puppet/modules/phpmyadmin" => "https://github.com/justicel/puppet-phpmyadmin.git",
+	"puppet/modules/wget" => "https://github.com/maestrodev/puppet-wget.git",
+	"puppet/modules/nodejs" => "https://github.com/willdurand/puppet-nodejs.git"
 );
 
 for my $k (keys(%deps)) {

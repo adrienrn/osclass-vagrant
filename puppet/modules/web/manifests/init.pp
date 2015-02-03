@@ -65,6 +65,19 @@ class web {
     class { 'php::composer': }
 
     #
+    # BOWER
+    #
+    class { 'nodejs':
+      version => 'stable',
+    }
+
+    package { 'bower':
+      ensure => present,
+      provider => 'npm',
+      require => Class["nodejs"]
+    }
+
+    #
     # SETUP OSCLASS & VHOST
     #
     file {'/var/www/osclass':

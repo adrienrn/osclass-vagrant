@@ -88,7 +88,13 @@ class web {
     #
     # PHPMYADMIN
     #
-    # class { 'phpmyadmin': }
-    # phpmyadmin::server{ 'default': }
+    class { 'phpmyadmin': }
+    phpmyadmin::server{ 'default': }
+
+    phpmyadmin::vhost { 'phpmyadmin.osclass.dev':
+        vhost_enabled => true,
+        priority      => '30',
+        docroot       => $phpmyadmin::params::doc_path,
+    }
 
 }

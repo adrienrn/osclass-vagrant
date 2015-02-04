@@ -29,4 +29,12 @@ class baseconfig {
     mode  => '0644',
     source => 'puppet:///modules/baseconfig/bash_profile';
   }
+
+  package {[
+      'git',
+      'emacs',
+      'tree'
+    ]:
+    ensure => present
+  }
 }

@@ -42,6 +42,9 @@ Vagrant.configure(2) do |config|
   # your network.
   # config.vm.network "public_network"
 
+  # Turn on SSH forwarding (so that 'vagrant ssh' has access to your local SSH keys, and you can use your local SSH keys to access GitHub, etc.)
+  config.ssh.forward_agent = true
+
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third

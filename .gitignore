@@ -4,4 +4,9 @@ puppet/modules/concat/
 puppet/modules/mysql/
 puppet/modules/staging/
 puppet/modules/stdlib/
+puppet/modules/inifile/
+puppet/modules/php/
+puppet/modules/phpmyadmin/
 sites/*
+*.DS_Store
+/php.error.log

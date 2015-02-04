@@ -1,0 +1,5 @@
+# GIT AWARE PROMPT
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
+source $GITAWAREPROMPT/main.sh
+
+export PS1="\[$bldgrn\]\u@\h\[$txtrst\] \W \[$bldylw\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\$ "

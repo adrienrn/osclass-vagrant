@@ -12,10 +12,21 @@ class baseconfig {
   # }
 
   file {
-    '/home/vagrant/.bashrc':
-      owner => 'vagrant',
-      group => 'vagrant',
-      mode  => '0644',
-      source => 'puppet:///modules/baseconfig/bashrc';
+    '/home/vagrant/.bash':
+    ensure => directory
+  }
+
+  file {
+    '/home/vagrant/.bash/git-aware-prompt':
+    recurse => true,
+    source => "puppet:///modules/baseconfig/git-aware-prompt"
+  }
+
+  file {
+    '/home/vagrant/.bash_profile':
+    owner => 'vagrant',
+    group => 'vagrant',
+    mode  => '0644',
+    source => 'puppet:///modules/baseconfig/bash_profile';
   }
 }

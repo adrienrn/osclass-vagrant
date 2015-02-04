@@ -84,6 +84,17 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
 
+  # Check if ~/.gitconfig exists locally
+  # If so, copy basic Git Config settings to Vagrant VM
+  if File.exists?(File.join(Dir.home, ".gitconfig"))
+      git_name = `git config user.name`   # find locally set git name
+      git_email = `git config user.email` # find locally set git email
+      # set git name for 'vagrant' user on VM
+      config.vm.provision :shell, :inline => "echo 'Saving local git username to VM...' && sudo -i -u vagrant git config --global user.name '#{git_name.chomp}'"
+      # set git email for 'vagrant' user on VM
+      config.vm.provision :shell, :inline => "echo 'Saving local git email to VM...' && sudo -i -u vagrant git config --global user.email '#{git_email.chomp}'"
+  end
+
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'puppet/manifests'
     puppet.manifest_file = 'site.pp'

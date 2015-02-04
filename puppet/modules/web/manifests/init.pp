@@ -11,8 +11,7 @@ class web {
     #
     # MYSQL
     #
-    class { '::mysql::server':
-    }
+    class { '::mysql::server': }
 
     file { "/tmp/init.sql":
       ensure => present,
@@ -27,35 +26,20 @@ class web {
       require => File['/tmp/init.sql'],
     }
 
-    # mysql_user { 'hello@localhost':
-    #   ensure                   => 'present',
-    #   max_connections_per_hour => '60',
-    #   max_queries_per_hour     => '120',
-    #   max_updates_per_hour     => '120',
-    #   max_user_connections     => '10',
-    # }
-
-    # mysql_grant { 'hello@localhost/osclass.*':
-    #   ensure     => 'present',
-    #   options    => ['GRANT'],
-    #   privileges => ['ALL'],
-    #   table      => 'osclass.*',
-    #   user       => 'hello@localhost',
-    # }
-
     #
     # PHP
     #
     package {[
-        'php5',
+            'php5',
             'php5-cli',
+            'php5-dev',
             'libapache2-mod-php5',
             'php-apc',
             'php5-curl',
-            'php5-dev',
             'php5-gd',
             'php5-fpm',
             'php5-imagick',
+            'php5-intl',
             'php5-mcrypt',
             'php5-memcache',
             'php5-mysql',
@@ -64,11 +48,21 @@ class web {
             'php5-tidy',
             'php5-xdebug',
             'php5-xmlrpc',
-            'php5-xsl',
-            'phpmyadmin'
+            'php5-xsl'
       ]:
       ensure => present;
     }
+
+    exec { 'enabling_mcrypt':
+        command  => "/usr/sbin/php5enmod mcrypt",
+        notify  => Service["apache2"],
+        require => Package["php5-mcrypt"],
+    }
+
+    #
+    # COMPOSER
+    #
+    class { 'php::composer': }
 
     #
     # SETUP OSCLASS & VHOST
@@ -81,10 +75,20 @@ class web {
     apache::vhost {'osclass.dev':
       port    => '80',
       docroot => '/var/www/osclass',
+      php_values => {
+        error_log => '/vagrant/php.error.log'
+      }
     }
 
     file { "/var/www/osclass/config.php":
       ensure => present,
       source => "puppet:///modules/web/config.php",
     }
+
+    #
+    # PHPMYADMIN
+    #
+    # class { 'phpmyadmin': }
+    # phpmyadmin::server{ 'default': }
+
 }

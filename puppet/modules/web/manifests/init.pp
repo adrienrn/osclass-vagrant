@@ -67,14 +67,29 @@ class web {
     #
     # BOWER
     #
-    class { 'nodejs':
-      version => 'stable',
+    package {[
+            'nodejs',
+      ]:
+      ensure => present;
     }
 
-    package { 'bower':
+    package {[
+            'nodejs-legacy',
+      ]:
       ensure => present,
-      provider => 'npm',
-      require => Class["nodejs"]
+      require => Package["nodejs"]
+    }
+
+    package {[
+            'npm',
+      ]:
+      ensure => present,
+      require => Package["nodejs-legacy"]
+    }
+
+    exec { 'install_bower':
+      command => '/usr/bin/npm install -g bower',
+      require  => Package["npm"]
     }
 
     #

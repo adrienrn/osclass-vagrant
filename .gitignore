@@ -1,4 +1,5 @@
 /.vagrant/
+/work/
 puppet/modules/apache/
 puppet/modules/concat/
 puppet/modules/mysql/

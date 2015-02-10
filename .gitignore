@@ -1,0 +1,17 @@
+/.vagrant/
+/work/
+puppet/modules/apache/
+puppet/modules/concat/
+puppet/modules/mysql/
+puppet/modules/staging/
+puppet/modules/stdlib/
+puppet/modules/inifile/
+puppet/modules/php/
+puppet/modules/phpmyadmin/
+puppet/modules/apt/
+puppet/modules/wget/
+puppet/modules/nodejs/
+puppet/modules/baseconfig/files/git-aware-prompt/
+sites/*
+*.DS_Store
+/php.error.log

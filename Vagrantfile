@@ -86,11 +86,11 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :puppet do |puppet|
     puppet.environment_path = 'puppet/environments'
-    puppet.environment = 'default'
+    puppet.environment = 'default' # empty environments, overriden below
 
-    puppet.manifests_path = 'puppet/manifests'
-    puppet.manifest_file = 'site.pp'
-    puppet.module_path = 'puppet/modules'
+    puppet.manifests_path = 'puppet/manifests' # override puppet/environments/default
+    puppet.manifest_file = 'site.pp' # override puppet/environments/default
+    puppet.module_path = 'puppet/modules' # override puppet/environments/default
     puppet.options = "--verbose --debug"
   end
 

@@ -11,7 +11,6 @@
 	"puppet/modules/phpmyadmin" => "https://github.com/justicel/puppet-phpmyadmin.git",
 	"puppet/modules/wget" => "https://github.com/maestrodev/puppet-wget.git",
 	"puppet/modules/nodejs" => "https://github.com/willdurand/puppet-nodejs.git",
-	"puppet/modules/baseconfig/files/git-aware-prompt" => "https://github.com/adrienrn/git-aware-prompt.git"
 );
 
 for my $k (keys(%deps)) {

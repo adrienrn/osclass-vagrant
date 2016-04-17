@@ -12,14 +12,14 @@ It includes :
 - **Apache:** HTTP server, with a configured `osclass.dev` vhost.
 - **PHP:** configured with required extensions to make it work with Osclass.
 - **MySQL:** database with default database structure.
-- **PhpMyAdmin:** to easily manage your database.
+- **PhpMyAdmin & Adminer:** to easily manage your database.
 
-It also includes some useful development tools like: Git, Composer, Bower... and more!
+It also includes some useful development tools like: Git, Composer, Bower, Grunt... and more!
 
 | -              | URL                            | User    | Password  | Comments |
 | :------------- | :-------------                 | :-----  | :-------- | :------- |
-| Osclass        | http://osclass.dev/            | admin   | admin     | |
-| MySQL          | http://osclass.dev/phpmyadmin/ | hello   | hello     | `root` has no password by default. |
+| Osclass        | http://osclass.dev/oc-admin/   | admin   | admin     | Use /oc-admin/ |
+| MySQL          | http://osclass.dev/phpmyadmin/<br />http://osclass.dev/adminer/ | hello   | hello     | For CLI access, `root` has no password by default. |
 | SSH            | `vagrant ssh`                  | vagrant | vagrant   | vagrant user is sudoers, use `sudo` to make root actions. |
 
 ---

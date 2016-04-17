@@ -84,6 +84,16 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
 
+  config.vm.provision :puppet do |puppet|
+    puppet.environment_path = 'puppet/environments'
+    puppet.environment = 'default' # empty environments, overriden below
+
+    puppet.manifests_path = 'puppet/manifests' # override puppet/environments/default
+    puppet.manifest_file = 'site.pp' # override puppet/environments/default
+    puppet.module_path = 'puppet/modules' # override puppet/environments/default
+    puppet.options = '--verbose'
+  end
+
   # Check if ~/.gitconfig exists locally
   # If so, copy basic Git Config settings to Vagrant VM
   if File.exists?(File.join(Dir.home, ".gitconfig"))
@@ -93,13 +103,6 @@ Vagrant.configure(2) do |config|
       config.vm.provision :shell, :inline => "echo 'Saving local git username to VM...' && sudo -i -u vagrant git config --global user.name '#{git_name.chomp}'"
       # set git email for 'vagrant' user on VM
       config.vm.provision :shell, :inline => "echo 'Saving local git email to VM...' && sudo -i -u vagrant git config --global user.email '#{git_email.chomp}'"
-  end
-
-  config.vm.provision :puppet do |puppet|
-    puppet.manifests_path = 'puppet/manifests'
-    puppet.manifest_file = 'site.pp'
-    puppet.module_path = 'puppet/modules'
-    puppet.options = "--verbose --debug"
   end
 
 end

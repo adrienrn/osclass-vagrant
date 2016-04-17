@@ -93,6 +93,14 @@ class web {
     }
 
     #
+    # GRUNT
+    #
+    exec { 'install_grunt':
+      command => '/usr/bin/npm install -g grunt',
+      require  => Package["npm"]
+    }
+
+    #
     # SETUP OSCLASS & VHOST
     #
     file {'/var/www/osclass':
@@ -125,4 +133,12 @@ class web {
         docroot       => $phpmyadmin::params::doc_path,
     }
 
+    #
+    # ADMINER
+    #
+    package {[
+            'adminer',
+      ]:
+      ensure => present;
+    }
 }

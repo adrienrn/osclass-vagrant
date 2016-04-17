@@ -91,7 +91,7 @@ Vagrant.configure(2) do |config|
     puppet.manifests_path = 'puppet/manifests' # override puppet/environments/default
     puppet.manifest_file = 'site.pp' # override puppet/environments/default
     puppet.module_path = 'puppet/modules' # override puppet/environments/default
-    puppet.options = "--verbose --debug"
+    puppet.options = '--verbose'
   end
 
   # Check if ~/.gitconfig exists locally

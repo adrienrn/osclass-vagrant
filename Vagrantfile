@@ -56,6 +56,7 @@ Vagrant.configure(2) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
+    config.vm.network "public_network"
     # Customize the amount of memory on the VM:
     vb.memory = ram
   end

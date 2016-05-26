@@ -9,6 +9,7 @@ class baseconfig {
 
   package {[
       'git',
+      'git-flow',
       'emacs',
       'tree'
     ]:
